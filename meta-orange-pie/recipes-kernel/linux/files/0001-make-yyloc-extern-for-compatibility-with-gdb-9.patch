@@ -1,0 +1,26 @@
+From f2fe4355a4086c37b981290a293c34d8bb6a2dbe Mon Sep 17 00:00:00 2001
+From: Ali <alireza.khalesi@yahoo.com>
+Date: Fri, 17 May 2024 22:23:36 +0330
+Subject: [PATCH] make yyloc extern for compatibility with gdb >9
+
+Signed-off-by: Ali <alireza.khalesi@yahoo.com>
+---
+ scripts/dtc/dtc-lexer.l | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/scripts/dtc/dtc-lexer.l b/scripts/dtc/dtc-lexer.l
+index 5c6c3fd557d7..3f942ce7f26d 100644
+--- a/scripts/dtc/dtc-lexer.l
++++ b/scripts/dtc/dtc-lexer.l
+@@ -23,7 +23,7 @@ LINECOMMENT	"//".*\n
+ #include "srcpos.h"
+ #include "dtc-parser.tab.h"
+ 
+-YYLTYPE yylloc;
++extern YYLTYPE yylloc;
+ extern bool treesource_error;
+ 
+ /* CAUTION: this will stop working if we ever use yyless() or yyunput() */
+-- 
+2.34.1
+
